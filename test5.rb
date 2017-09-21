@@ -26,14 +26,12 @@ end
 
 def solution(points)
   total = 0
-  found = []
 
   points.each.with_index do |p1, i1|
     points[(i1 + 1)..-1].each.with_index do |p2, i2|
       points[(i1 + i2 + 2)..-1].each do |p3|
         if collinear?(p1, p2, p3)
           total += 1
-          found << [[p1.x, p1.y], [p2.x, p2.y], [p3.x, p3.y]]
         end
       end
     end
